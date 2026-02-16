@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для тебя ❤️</title>
+    <style>
+        body { margin: 0; background: #000; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; overflow: hidden; }
+        video { width: 100%; max-height: 100vh; box-shadow: 0 0 20px rgba(255,105,180,0.3); }
+        .error { text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="player-container">
+        <video id="mainVideo" controls autoplay playsinline>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="error-msg" class="error" style="display: none;">
+        <h2>Хмм... ❤️</h2>
+        <p>Похоже, эта страница откроется только через специальный QR-код из твоей книги.</p>
+    </div>
+
+    <script>
+        // ТУТ ТВОИ КОДЫ И НАЗВАНИЯ ФАЙЛОВ
+        const videoMap = {
+            "moment1": "clip_hsgsuwgww.mp4",
+            "smile": "v2_jks82ks.mp4",
+            "first_date": "my_video_99.mp4"
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('v');
+
+        const videoElement = document.getElementById('mainVideo');
+        const errorElement = document.getElementById('error-msg');
+
+        if (videoId && videoMap[videoId]) {
+            // Если код верный, ставим путь к видео из папки clips
+            videoElement.querySelector('source').src = "clips/" + videoMap[videoId];
+            videoElement.load();
+        } else {
+            // Если кода нет или он неверный — прячем плеер и показываем ошибку
+            document.getElementById('player-container').style.display = 'none';
+            errorElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
