@@ -3,48 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Для тебя ❤️</title>
+    <title>Почему ты? ❤️</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        body { margin: 0; background: #000; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; overflow: hidden; }
-        video { width: 100%; max-height: 100vh; box-shadow: 0 0 20px rgba(255,105,180,0.3); }
-        .error { text-align: center; padding: 20px; }
+        body { margin: 0; padding: 0; background: #050505; color: #fff; font-family: 'Georgia', serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .login-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); width: 300px; z-index: 10; }
+        h1 { font-weight: 300; letter-spacing: 2px; margin-bottom: 30px; font-size: 24px; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; text-align: center; box-sizing: border-box; outline: none; transition: 0.3s; }
+        input:focus { border-color: #ff69b4; background: rgba(255, 255, 255, 0.15); }
+        button { width: 100%; padding: 12px; background: #ff69b4; border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        button:hover { background: #ff1493; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4); }
+        /* Фон со звездами (простой эффект) */
+        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/images/prologue_bg.jpg') center/cover; opacity: 0.5; z-index: 1; }
     </style>
 </head>
 <body>
-
-    <div id="player-container">
-        <video id="mainVideo" controls autoplay playsinline>
-            <source src="" type="video/mp4">
-        </video>
-    </div>
-
-    <div id="error-msg" class="error" style="display: none;">
-        <h2>Хмм... ❤️</h2>
-        <p>Похоже, эта страница откроется только через специальный QR-код из твоей книги.</p>
+    <div class="stars"></div>
+    <div class="login-card">
+        <h1>Вход в историю</h1>
+        <input type="text" id="login" placeholder="Твоё имя (латиницей)">
+        <input type="password" id="pass" placeholder="Секретная дата (ДДММ)">
+        <button onclick="enterBook()">Открыть</button>
     </div>
 
     <script>
-        // ТУТ ТВОИ КОДЫ И НАЗВАНИЯ ФАЙЛОВ
-        const videoMap = {
-            "moment1": "clip_hsgsuwgww.mp4",
-            "smile": "v2_jks82ks.mp4",
-            "first_date": "my_video_99.mp4"
-        };
+        function enterBook() {
+            const user = document.getElementById('login').value.toLowerCase().trim();
+            const pass = document.getElementById('pass').value;
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('v');
-
-        const videoElement = document.getElementById('mainVideo');
-        const errorElement = document.getElementById('error-msg');
-
-        if (videoId && videoMap[videoId]) {
-            // Если код верный, ставим путь к видео из папки clips
-            videoElement.querySelector('source').src = "clips/" + videoMap[videoId];
-            videoElement.load();
-        } else {
-            // Если кода нет или он неверный — прячем плеер и показываем ошибку
-            document.getElementById('player-container').style.display = 'none';
-            errorElement.style.display = 'block';
+            // Настроим твои данные тут
+            if (user === "ayka" && pass === "180626") { // Пример: имя и дата
+                sessionStorage.setItem('access', 'true'); // Чтобы нельзя было просто зайти на book.html по ссылке
+                window.location.href = "book.html";
+            } else {
+                alert("Хмм, кажется, ты ошиблась... Посмотри подсказку на первой странице книги ❤️");
+            }
         }
     </script>
 </body>

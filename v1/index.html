@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наше Мгновение ❤️</title>
+    <style>
+        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .lock { text-align: center; padding: 20px; transition: 0.5s; }
+        input { padding: 12px; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; text-align: center; margin: 10px 0; }
+        button { padding: 12px 25px; background: #ff69b4; border: none; border-radius: 5px; color: #fff; cursor: pointer; }
+        #player { display: none; width: 100%; height: 100%; }
+        iframe { width: 100vw; height: 100vh; border: none; }
+    </style>
+</head>
+<body>
+
+    <div id="lockScreen" class="lock">
+        <h2>Видео заблокировано ❤️</h2>
+        <p>Введите секретное слово с этой страницы книги:</p>
+        <input type="text" id="secretWord" placeholder="Слово из книги...">
+        <br>
+        <button onclick="unlock()">Открыть момент</button>
+    </div>
+
+    <div id="player">
+        <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const CORRECT_WORD = "moment1"; // Замени на свое слово для этого видео
+        const VIDEO_URL = "https://www.youtube.com/embed/1gKZk0O2jPU?autoplay=1";
+
+        function unlock() {
+            const val = document.getElementById('secretWord').value.toLowerCase().trim();
+            if (val === CORRECT_WORD) {
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('player').style.display = 'block';
+                document.getElementById('videoFrame').src = VIDEO_URL;
+            } else {
+                alert("Неверно! Попробуй еще раз.");
+            }
+        }
+    </script>
+</body>
+</html>
