@@ -1,9 +1,130 @@
-body { margin: 0; padding: 0; background: #050505; color: #fff; font-family: 'Georgia', serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-        .login-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); width: 300px; z-index: 10; }
-        h1 { font-weight: 300; letter-spacing: 2px; margin-bottom: 30px; font-size: 24px; }
-        input { width: 100%; padding: 12px; margin-bottom: 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: ####ffffff; text-align: center; box-sizing: border-box; outline: none; transition: 0.3s; }
-        input:focus { border-color: #ff69b4; background: rgba(255, 255, 255, 0.15); }
-        button { width: 100%; padding: 12px; background: #ff69b4; border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 16px; transition: 0.3s; }
-        button:hover { background: #ff1493; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4); }
-        /* Фон со звездами (простой эффект) */
-        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/images/prologue_bg.jpg') center/cover; opacity: 0.5; z-index: 1; }
+/* Полностью обновленный assets/css/style.css */
+
+/* Базовый сброс и центрирование */
+* {
+    box-shadow: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Убираем синее выделение при тапе на мобилках */
+    -webkit-tap-highlight-color: transparent; 
+}
+
+body {
+    background-color: #f6f3ea;
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Контейнер формы */
+.login-container {
+    text-align: center;
+    width: 100%;
+    max-width: 320px; /* Чуть-чуть расширим для лучшего баланса */
+}
+
+/* Изящное бьющееся сердечко */
+.logo { 
+    color: #8c2323; 
+    font-size: 34px; 
+    margin-bottom: 25px;
+    animation: heartbeat 1.4s infinite ease-in-out;
+}
+
+h1 { 
+    font-size: 22px; 
+    font-weight: normal; 
+    color: #2c2a29; 
+    margin-bottom: 12px; 
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-size: 15px;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* Сглаживаем и смягчаем поля ввода (Имя / Пароль) */
+input {
+    width: 100%;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: 1px solid #e3decb; /* Сделали границу мягче, чтобы не резала глаз */
+    background: #ffffff;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    color: #2c2a29;
+    
+    /* Вот она, магия сглаживания углов */
+    border-radius: 25px; 
+    
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Эффект легкого фокуса при нажатии на поле ввода */
+input:focus {
+    border-color: #b5a895;
+    background-color: #fffdf9;
+}
+
+/* Делаем кнопку «ОТКРЫТЬ КНИГУ» идеальной формы */
+button {
+    width: 100%;
+    padding: 15px 20px;
+    background: #2c2a29;
+    color: #f6f3ea;
+    border: none;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Чуть увеличили расстояние между буквами для стиля */
+    margin-top: 15px;
+    
+    /* Сглаживаем углы кнопки, делая её аккуратной и овальной */
+    border-radius: 25px; 
+    
+    /* Мягкая, дорогая тень для объема */
+    box-shadow: 0 4px 15px rgba(44, 42, 41, 0.2); 
+    
+    transition: all 0.3s ease;
+}
+
+/* Интерактив при нажатии */
+button:hover {
+    background: #403d3a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(44, 42, 41, 0.25);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(44, 42, 41, 0.2);
+}
+
+/* Стили для ошибки */
+.error { 
+    color: #8c2323; 
+    font-size: 13px; 
+    margin-top: 20px; 
+    display: none; 
+    font-style: italic;
+}
+
+/* Анимация для сердечка, чтобы страница ожила */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.15); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.15); }
+    70% { transform: scale(1); }
+}

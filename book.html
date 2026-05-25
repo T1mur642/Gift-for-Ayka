@@ -1,1 +1,39 @@
-<h1>Книга в разработке</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>101 Причина, почему я люблю тебя</title>
+    <!-- Подключаем общие стили -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Специфические стили для книги -->
+    <link rel="stylesheet" href="assets/css/book.css">
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Контейнер для контента страниц -->
+        <div id="bookContent">
+            <!-- Сюда JS будет подгружать страницы -->
+        </div>
+
+        <!-- Навигация -->
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changePage(-1)" disabled>← Назад</button>
+            <span class="page-counter" id="counter">1</span>
+            <button class="nav-btn" id="nextBtn" onclick="changePage(1)">Вперед →</button>
+        </div>
+    </div>
+
+    <!-- Защита от входа без пароля -->
+    <script src="assets/js/book.js"></script>
+    <script>
+        // Инициализация при загрузке
+        window.onload = () => {
+            // Проверка авторизации (функция в book.js)
+            checkAccess(); 
+            renderPage(currentPage);
+        };
+    </script>
+</body>
+</html>

@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Почему ты? ❤️</title>
+    <title>Вход — 101 Причина для Айки</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="login-card">
-        <h1>Вход в историю</h1>
-        <input type="text" id="login" placeholder="Логин...">
-        <input type="password" id="pass" placeholder="Пороль...">
-        <button onclick="enterBook()">Открыть</button>
+
+    <div class="login-container">
+        <div class="logo">♥</div>
+        <h1>Добро пожаловать</h1>
+        <p>История, написанная для тебя.</p>
+        
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Имя" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <button type="submit">Открыть книгу</button>
+        </form>
+        <div id="errorMessage" class="error">Неверные данные. Попробуй еще раз.</div>
     </div>
 
-    <script>
-        function enterBook() {
-            const user = document.getElementById('login').value.toLowerCase().trim();
-            const pass = document.getElementById('pass').value;
-
-            // Настроим твои данные тут
-            if (user === "deinherz" && pass === "180626") { // Пример: имя и дата
-                sessionStorage.setItem('access', 'true'); // Чтобы нельзя было просто зайти на book.html по ссылке
-                window.location.href = "book.html";
-            } else {
-                alert("Хмм, кажется, ты ошиблась... Посмотри подсказку на первой странице книги ❤️");
-            }
-        }
-    </script>
+    <script src="assets/js/book.js"></script>
 </body>
 </html>
