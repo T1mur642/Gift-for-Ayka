@@ -1,5 +1,5 @@
 const CORRECT_WORD = "moment1"; // Твой ключ
-const VIDEO_URL = "https://www.youtube.com/embed/1gKZk0O2jPU?autoplay=1";
+const VIDEO_URL = "https://www.youtube.com/embed/taaSYRW2Rg8?autoplay=1";
 
 function unlock() {
     const input = document.getElementById('secretWord');
