@@ -1,4 +1,4 @@
-const CORRECT_WORD = "Geliebte"; 
+const CORRECT_WORD = "geliebte"; 
 
 // Твоя ссылка на вертикальное видео (YouTube Shorts или обычное вертикальное)
 const VIDEO_URL = "https://www.youtube.com/embed/1RyHe0nnFTA?autoplay=1&controls=1&rel=0&modestbranding=1&iv_load_policy=3";
