@@ -1,7 +1,7 @@
-const CORRECT_WORD = "moment1"; 
+const CORRECT_WORD = "Geliebte"; 
 
 // Твоя ссылка на вертикальное видео (YouTube Shorts или обычное вертикальное)
-const VIDEO_URL = "https://www.youtube.com/embed/JVHmi2mWUtI?autoplay=1&controls=1&rel=0&modestbranding=1&iv_load_policy=3";
+const VIDEO_URL = "https://www.youtube.com/embed/1RyHe0nnFTA?autoplay=1&controls=1&rel=0&modestbranding=1&iv_load_policy=3";
 
 function unlock() {
     const input = document.getElementById('secretWord');
